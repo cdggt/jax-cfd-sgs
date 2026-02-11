@@ -8,7 +8,7 @@ Actively maintained by Matteo Ugliotti. Please feel free to reach out to me (mat
 
 ## Overview
 
-**JAX-CFD Extended** is a research-oriented extension of the original [JAX-CFD](https://github.com/google/jax-cfd) framework developed by Google Research.  
+**JAX-CFD Extended** is an SGS-Modeling extension of the original [JAX-CFD](https://github.com/google/jax-cfd) framework developed by Google Research.  
 It expands the numerical and modeling capabilities of JAX-CFD to support advanced turbulence research, interpretable data-driven closure modeling, and large-scale computational experiments.
 
 Specifically, we focus on enabling modern research workflows in computational fluid dynamics:
