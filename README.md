@@ -46,7 +46,7 @@ To be updated soon
 Install directly from the repository:
 
 ```bash
-pip install git+https://github.gatech.edu/mugliotti3/jax_cfd/
+pip install git+https://github.com/cdggt/jax-cfd-sgs/
 ```
 
 We also recommend making sure you have installed: numpy, jax, pathlib, xarray, matplotlib, tqdm.
