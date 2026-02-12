@@ -29,7 +29,7 @@ The repository also includes implementations for reproducibility for the data us
 
 - **Physics-informed data-driven inference of an interpretable equivariant LES model of incompressible fluid turbulence**  
   Matteo Ugliotti, Brandon Choi, Mateo Reynoso, Daniel R. Gurevich, Roman O. Grigoriev
-  Journal of Fluid Mechanics (JFM), 2026
+  Journal of Fluid Mechanics (JFM), (Arxiv Link coming soon) 2026
 
 More details are provided in README's of each main subfolder.
 
