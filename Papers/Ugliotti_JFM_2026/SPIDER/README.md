@@ -18,13 +18,13 @@ Please follow the installation instructions provided in that repository.
 
 Both scripts assume access to DNS datasets generated with:
 
-👉 `[Generate_DNS.ipynb](../Generate_Data/Generate_DNS.ipynb)`
+👉 [Generate_DNS.ipynb](../Generate_Data/Generate_DNS.ipynb)
 
 ---
 
 ## Contents
 
-### 1. [Finding-NGM4.ipynb](Finding-NGM4.ipynb)
+### 1. Discovering NGM4 ([Finding-NGM4.ipynb](Finding-NGM4.ipynb))
 
 **Purpose:** Recover the nonlinear gradient expansion directly from DNS data using sparse regression.
 
@@ -58,7 +58,7 @@ Demonstrates that sparse regression can recover the structure and coefficients o
 
 ---
 
-### 2. Discovering the Reynolds-Stress Evolution Equation *(notebook name TBD)*
+### 2. Discovering the Reynolds-Stress Evolution Equation ([Finding-R.ipynb](Finding-R.ipynb))
 
 **Purpose:** Infer the evolution equation for the Reynolds stress tensor directly from DNS data.
 
@@ -82,7 +82,6 @@ Recovers the Reynolds-stress evolution equation presented in **Eq. (3.4)** of th
 
 - These notebooks are primarily intended for **interpretability and reproducibility**, rather than large-scale production workflows.
 - DNS data quality is critical — noisy or under-resolved simulations may degrade regression performance.
-- For consistency, ensure that filtering and preprocessing steps match those used in the paper.
 
 ---
 
