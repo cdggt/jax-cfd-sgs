@@ -2,6 +2,11 @@
 
 **Authors:** Matteo Ugliotti, Mateo Reynoso
 
+**Institution:** Georgia Institute of Technology, Atlanta, GA
+
+Code accompanying Ugliotti et al., JFM (2026, under review)
+
+
 Actively maintained by Matteo Ugliotti. Please feel free to reach out to me (matteougliotti@gatech.edu) with any questions or cool project/implementation ideas.
 
 ---
