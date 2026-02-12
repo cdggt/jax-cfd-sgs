@@ -11,16 +11,17 @@ Actively maintained by Matteo Ugliotti. Please feel free to reach out to me (mat
 **JAX-CFD Extended** is an SGS-Modeling extension of the original [JAX-CFD](https://github.com/google/jax-cfd) framework developed by Google Research.  
 It expands the numerical and modeling capabilities of JAX-CFD to support advanced turbulence research, interpretable data-driven closure modeling, and large-scale computational experiments. This project is an independent research extension and is not officially affiliated with Google Research.
 
-### Who is this repository for?
-
-This codebase is designed for:
-
-- Researchers in computational fluid dynamics  
-- Scientists studying turbulence and multiscale physics  
-- Users interested in interpretable data-driven modeling  
-- Graduate students building new LES closures
-
 ### What is this repository for?
+
+Specifically, we focus on enabling modern research workflows in computational fluid dynamics:
+
+- Large-eddy simulation (LES) with advanced subgrid-scale modeling in 2D
+- Physics-informed and interpretable data-driven closures model discovery 
+- Support for large DNS/LES datasets
+- Tools for scalable numerical experiments  
+- Early support for magnetohydrodynamics (MHD) and three-dimensional turbulence
+
+Most of the changes we did to the original JAX-CFD are in the spectral subfolder. Specifically, we added two new files to handle SGS models (subgrid_models.py) and Chebychev grids (chebychev.py). We also added new integrators for MHD, 3D turbulence and compressible 2D turbulence (equations.py), new forcing functions (forcings.py) as well as lots of helper functions (utils.py). There are example scripts on how to use most our new features under notebooks with ample commenting.
 
 The repository also includes implementations for reproducibility for the data used in my two papers, which can be found under notebooks/papers:
 
@@ -34,15 +35,14 @@ The repository also includes implementations for reproducibility for the data us
 
 More details are provided in README's of each main subfolder.
 
-Specifically, we focus on enabling modern research workflows in computational fluid dynamics:
+### Who is this repository for?
 
-- Large-eddy simulation (LES) with advanced subgrid-scale modeling in 2D
-- Physics-informed and interpretable data-driven closures model discovery 
-- Support for large DNS/LES datasets
-- Tools for scalable numerical experiments  
-- Early support for magnetohydrodynamics (MHD) and three-dimensional turbulence
+This codebase is designed for:
 
-Most of the changes we did to the original JAX-CFD are in the spectral subfolder. Specifically, we added two new files to handle SGS models (subgrid_models.py) and Chebychev grids (chebychev.py). We also added new integrators for MHD, 3D turbulence and compressible 2D turbulence (equations.py), new forcing functions (forcings.py) as well as lots of helper functions (utils.py). There are example scripts on how to use most our new features under notebooks with ample commenting.
+- Researchers in computational fluid dynamics  
+- Scientists studying turbulence and multiscale physics  
+- Users interested in interpretable data-driven modeling  
+- Graduate students building new LES closures
 
 ### Compute Requirements
 
@@ -50,7 +50,7 @@ Small test runs can be executed on CPU, but meaningful DNS/LES experiments stron
 
 Large datasets may require substantial memory and storage.
 
-### ⚡ Quick Start (Recommended)
+### Quick Start (Recommended)
 
 If you want to run your first turbulence simulation as quickly as possible:
 
