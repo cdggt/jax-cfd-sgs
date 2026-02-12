@@ -9,7 +9,7 @@ Actively maintained by Matteo Ugliotti. Please feel free to reach out to me (mat
 ## Overview
 
 **JAX-CFD Extended** is an SGS-Modeling extension of the original [JAX-CFD](https://github.com/google/jax-cfd) framework developed by Google Research.  
-It expands the numerical and modeling capabilities of JAX-CFD to support advanced turbulence research, interpretable data-driven closure modeling, and large-scale computational experiments.
+It expands the numerical and modeling capabilities of JAX-CFD to support advanced turbulence research, interpretable data-driven closure modeling, and large-scale computational experiments. This project is an independent research extension and is not officially affiliated with Google Research.
 
 Specifically, we focus on enabling modern research workflows in computational fluid dynamics:
 
@@ -32,6 +32,39 @@ The repository also includes implementations for reproducibility for the data us
   Journal of Fluid Mechanics (JFM), (Arxiv Link coming soon) 2026
 
 More details are provided in README's of each main subfolder.
+
+### Who is this repository for?
+
+This codebase is designed for:
+
+- Researchers in computational fluid dynamics  
+- Scientists studying turbulence and multiscale physics  
+- Users interested in interpretable data-driven modeling  
+- Graduate students building new LES closures
+
+### Compute Requirements
+
+Small test runs can be executed on CPU, but meaningful DNS/LES experiments strongly benefit from GPU acceleration.
+
+Large datasets may require substantial memory and storage.
+
+### ⚡ Quick Start (Recommended)
+
+If you want to run your first turbulence simulation as quickly as possible:
+
+1. Install the package  
+2. Open  
+   👉 [Generate_IC.ipynb](Papers/Ugliotti_JFM_2026/Generate_Data/Generate_IC.ipynb)  
+3. Then run  
+   👉 [Generate_DNS.ipynb](Papers/Ugliotti_JFM_2026/Generate_Data/Generate_DNS.ipynb)
+
+You will have a physically consistent DNS dataset in minutes.
+
+From there you can:
+
+- Run LES models  
+- Perform diagnostics  
+- Discover closures with SPIDER  
 
 ---
 
