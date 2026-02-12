@@ -1,4 +1,4 @@
-# Generate_Data
+# How to generate Data
 
 ## Overview
 
