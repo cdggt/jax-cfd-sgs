@@ -12,20 +12,16 @@ The directory includes a set of standalone analysis notebooks, each designed to 
 
 ## Contents
 
-### 1. [Calculate-Lengthscale.ipynb](Calculate-Lengthscale.ipynb)
+### 1. Calculate Lengthscales ([Calculate-Lengthscale.ipynb](Calculate-Lengthscale.ipynb))
 
 **Purpose:** Compute the characteristic system length scale required for subsequent analyses.
 
 **Description:**
 
-This script takes DNS velocity data as input and computes the length scale defined in the paper as
+This script takes DNS velocity data as input and computes the length scale defined in the paper (see Eq. 2.9.)
 
-\[
-\ell_i = \left(
-\frac{\int\left\langle \left\lVert \tfrac{1}{12}(\nabla_k u_i)(\nabla_k u_j)\right\rVert_F \right\rangle dt}
-{\left\langle \int\left\lVert \tfrac{1}{288}(\nabla_k\nabla_l u_i)(\nabla_k\nabla_l u_j)\right\rVert_F \right\rangle dt}
-\right)^{1/2}.
-\]
+ℓᵢ = sqrt( ⟨ || (1/12)(∇ₖuᵢ)(∇ₖuⱼ) ||_F ⟩_t  
+      / ⟨ ∫ || (1/288)(∇ₖ∇ₗuᵢ)(∇ₖ∇ₗuⱼ) ||_F ⟩_t )
 
 **Why this matters:**
 
@@ -33,26 +29,36 @@ The computed length scale is required as an input for several downstream scripts
 
 ---
 
-### 2. [Dissipation-Ratios.ipynb](Dissipation-Ratios.ipynb)
+### 2. Analyze Spectra and Vorticity ([Vorticity&Spectrum-Plots.ipynb](Vorticity&Spectrum-Plots.ipynb))
 
-**Recreates:** **Figure 17**
+**Recreates:** **Figures 5, 6, 10, 18, 19**
 
-**Purpose:** Identify appropriate LES operating regimes.
+**Purpose:** Visualize flow structure and spectral content to check that your simulations are good.
 
 **Workflow:**
 
 - Takes DNS data as input.
-- Computes the filter scale normalized by the length scale:
+- Selects a user-defined snapshot.
+- Produces:
+  - Vorticity field visualizations  
+  - Energy spectra  
 
-\[
-\delta = \frac{\Delta}{\ell}
-\]
+These diagnostics are useful both for figure generation and for qualitative inspection of flow behavior.
 
-- Computes the viscous-to-SGS dissipation ratio:
+---
 
-\[
-Re_\delta
-\]
+### 3. Find the correct LES Regime ([Dissipation-Ratios.ipynb](Dissipation-Ratios.ipynb))
+
+**Recreates:** **Figure 17**
+
+**Purpose:** Identify appropriate LES operating regimes to run your LES on.
+
+**Workflow:**
+
+- Takes DNS data as input.
+- Computes the filter scale normalized by the length scale
+
+- Computes the viscous-to-SGS dissipation ratio
 
 - Generates the regime map used to guide LES parameter selection.
 
@@ -71,11 +77,11 @@ If \(Re_\delta\) is not sufficiently large, the experiment provides limited insi
 
 ---
 
-### 3. [Flux-Panel.ipynb](Flux-Panel.ipynb)
+### 4. Plot fluxes ([Flux-Panel.ipynb](Flux-Panel.ipynb))
 
 **Recreates:** **Figure 3**
 
-**Purpose:** Compare energy flux predictions across SGS models.
+**Purpose:** Compare energy flux predictions across SGS models (a-priori) to get intuition on how your runs might perform.
 
 **Workflow:**
 
@@ -91,11 +97,11 @@ The resulting panel provides a direct visual comparison between modeled and anal
 
 ---
 
-### 4. [LCR-Correlations.ipynb](LCR-Correlations.ipynb)
+### 5. LCR accuracy ([LCR-Correlations.ipynb](LCR-Correlations.ipynb))
 
 **Recreates:** **Figure 16**
 
-**Purpose:** Analyze the Leonard–Cross–Reynolds (LCR) decomposition of the SGS tensor.
+**Purpose:** Analyze the Leonard–Cross–Reynolds (LCR) decomposition of the SGS tensor to find out what is important when. 
 
 **Workflow:**
 
@@ -107,11 +113,11 @@ The resulting panel provides a direct visual comparison between modeled and anal
 2. Correlation of each tensor’s flux with the true flux  
 3. Dissipation contributed by each tensor relative to total SGS dissipation  
 
-This analysis clarifies how each component contributes to the overall stress and energy transfer.
+This analysis clarifies how each component contributes to the overall stress and energy transfer, indicating what needs to be modeled and why.
 
 ---
 
-### 5. [Models-Correlations.ipynb](Models-Correlations.ipynb)
+### 6. LES Models correlations ([Models-Correlations.ipynb](Models-Correlations.ipynb))
 
 **Recreates:** **Figure 2**
 
@@ -139,7 +145,7 @@ Together, these metrics provide a comprehensive assessment of model fidelity.
 
 ---
 
-### 6. [R-Correlations.ipynb](R-Correlations.ipynb)
+### 7. R evolution equation accuracy([R-Correlations.ipynb](R-Correlations.ipynb))
 
 **Recreates:** **Figure 4**
 
@@ -151,17 +157,7 @@ The script computes \( \partial_t R \) in two independent ways:
 
 **(1) Using the evolution equation**
 
-\[
-\partial_t R_{ij} =
-- \bar{u}_l \nabla_l R_{ij}
-+ R_{il}\nabla_l \bar{u}_j
-+ R_{jl}\nabla_l \bar{u}_i
-+ \nu\nabla^2 R_{ij}
-- \bar{S}_{lm}R_{lm}\delta_{ij}
-+ k\bar{S}_{ij}
-- \alpha I R_{ij}
-+ D^{(2)}_{ij}
-\]
+∂ₜRᵢⱼ = − ūₗ ∇ₗRᵢⱼ  + Rᵢₗ ∇ₗūⱼ  + Rⱼₗ ∇ₗūᵢ  + ν ∇²Rᵢⱼ  − S̄ₗₘ Rₗₘ δᵢⱼ  + k S̄ᵢⱼ  − α I Rᵢⱼ  + Dᵢⱼ⁽²⁾
 
 **(2) Using a second-order Euler time discretization.**
 
@@ -169,25 +165,7 @@ The correlation between the resulting tensors quantifies the accuracy of the pro
 
 ---
 
-### 7. [Vorticity&Spectrum-Plots.ipynb](Vorticity&Spectrum-Plots.ipynb)
-
-**Recreates:** **Figures 5, 6, 10, 18, 19**
-
-**Purpose:** Visualize flow structure and spectral content.
-
-**Workflow:**
-
-- Takes DNS data as input.
-- Selects a user-defined snapshot.
-- Produces:
-  - Vorticity field visualizations  
-  - Energy spectra  
-
-These diagnostics are useful both for figure generation and for qualitative inspection of flow behavior.
-
----
-
-### 8. [Vorticity-Correlation.ipynbs](Vorticity-Correlation.ipynbs)
+### 8. Vorticity Time-Correlation ([Vorticity-Correlation.ipynbs](Vorticity-Correlation.ipynbs))
 
 **Recreates:** **Figure 9**
 
