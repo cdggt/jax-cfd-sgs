@@ -7,7 +7,7 @@
 Code accompanying Ugliotti et al., JFM (2026, under review)
 
 
-Actively maintained by Matteo Ugliotti. Please feel free to reach out to me (matteougliotti@gatech.edu) with any questions or cool project/implementation ideas.
+Actively maintained by Matteo Ugliotti. Please feel free to reach out to us (matteougliotti@gatech.edu) with any questions or cool project/implementation ideas.
 
 ---
 
