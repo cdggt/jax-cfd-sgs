@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 """Pseudospectral equations for subrid models."""
-
+#  NGMR is refered as LCR/LES_w_TR
 import dataclasses
 from typing import Callable, Optional, Tuple
 from jax import debug, value_and_grad, lax, random
