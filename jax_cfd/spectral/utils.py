@@ -841,3 +841,13 @@ def vorticity_to_streamfunction(
         return psi_hat
 
     return omega_hat_to_psi_hat
+
+@jit
+def cfl(U: Array, dx: float, dy: float, dz: float | None = None, cfl: float = 0.5) -> Array:
+    umax = jnp.max(jnp.abs(U[...,0]))
+    vmax = jnp.max(jnp.abs(U[...,1]))
+    dt = jnp.minimum(dx/(umax+1e-12), dy/(vmax+1e-12))
+    if U.shape[-1] == 3:
+        wmax = jnp.max(jnp.abs(U[...,2]))
+        dt = jnp.minimum(dt, dz/(wmax+1e-12))
+    return cfl * dt
